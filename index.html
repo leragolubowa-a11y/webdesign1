@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Максим Орлов - Дизайнер и креативный директор</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #0c0306;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: #0c0306;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #f7b0c2;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #27000c;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #ff9e9e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #1b1e45 0%, #e9507e 100%);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Обо мне */
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Навыки */
+        .skills {
+            background: #f8f9fa;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-item i {
+            font-size: 2.5rem;
+            color: #6b9cca;
+            margin-bottom: 20px;
+        }
+        
+        /* Портфолио */
+        .portfolio {
+            background: white;
+        }
+        
+        .slider {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .slider-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .slider-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: #3498db;
+        }
+        
+        /* Контакты */
+        .contact {
+            background: linear-gradient(135deg, #1b1e45 0%, #e9507e 100%);
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            padding: 120px 0 80px;
+        }
+        
+        .contact h2:after {
+            background: white;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Футер */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        
+        .development-time {
+            background: rgba(0,0,0,0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 100px 0 80px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+                padding: 100px 0 60px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <h1>Валерия Голубова</h1>
+            <p>Дизайнер и креативный директор с 8-летним опытом создания визуальных решений, которые вдохновляют и преобразуют бизнес</p>
+            <a href="#contact" class="btn">Связаться со мной</a>
+        </div>
+    </header>
+
+    <!-- Обо мне -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Привет! Я Валерия, дизайнер с многолетним опытом работы в различных сферах — от брендинга и графического дизайна до UI/UX и веб-дизайна.</p>
+                    <p>Моя карьера началась в 2022 году, и с тех пор я успел поработать с более чем 50 клиентами по всему миру, включая такие компании как SkyTech, Visionary и ArtCode.</p>
+                    <p>Я верю, что хороший дизайн — это не только эстетика, но и функциональность. Моя цель — создавать решения, которые не только выглядят привлекательно, но и решают конкретные бизнес-задачи.</p>
+                    <p>В свободное время я люблю посещать дизайнерские воркшопы, читать книги по психологии восприятия и путешествовать в поисках новых источников вдохновения.</p>
+                </div>
+                <div class="about-image">
+                    <img src="me.jpg" alt="Голубова Валерия - дизайнер">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Мои навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Графический дизайн</h3>
+                    <p>Создание логотипов, брендбуков, полиграфии и рекламных материалов</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-desktop"></i>
+                    <h3>UI/UX дизайн</h3>
+                    <p>Проектирование интерфейсов, которые удобны и интуитивно понятны пользователям</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Веб-дизайн</h3>
+                    <p>Создание современных и адаптивных веб-сайтов и приложений</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-cube"></i>
+                    <h3>3D-моделирование</h3>
+                    <p>Разработка трехмерных объектов и визуализация продукта</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Мое портфолио</h2>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Проект 1">
+                        <div class="slide-caption">
+                            <h3>Ребрендинг SkyTech</h3>
+                            <p>Полный ребрендинг технологической компании</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Проект 2">
+                        <div class="slide-caption">
+                            <h3>Мобильное приложение FinTrack</h3>
+                            <p>UI/UX дизайн для приложения управления финансами</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Проект 3">
+                        <div class="slide-caption">
+                            <h3>Веб-сайт Luxury Estates</h3>
+                            <p>Дизайн и разработка сайта для агентства недвижимости</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <span class="slider-dot active" data-index="0"></span>
+                <span class="slider-dot" data-index="1"></span>
+                <span class="slider-dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <p>Готовы начать новый проект? Свяжитесь со мной, и мы обсудим, как я могу помочь вашему бизнесу выделиться!</p>
+                <p><i class="fas fa-envelope"></i> Email: maxim@designer.com</p>
+                <p><i class="fas fa-phone"></i> Телефон: +7 (999) 123-45-67</p>
+                <p><i class="fas fa-map-marker-alt"></i> Местоположение: Москва, Россия</p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn" style="margin: 5px;"><i class="fab fa-behance"></i> Behance</a>
+                    <a href="#" class="btn" style="margin: 5px;"><i class="fab fa-dribbble"></i> Dribbble</a>
+                    <a href="#" class="btn" style="margin: 5px;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Валерия Голубова. Все права защищены.</p>
+            <div class="development-time">
+                <p>Сайт разработан за 20 минут с помощью нейросети DeepSeek</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Слайдер
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelector('.slides');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentIndex = 0;
+            
+            function showSlide(index) {
+                slides.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Обновляем активную точку
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            // Обработчики для точек
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+            
+            // Автопереключение слайдов
+            setInterval(() => {
+                let nextIndex = (currentIndex + 1) % dots.length;
+                showSlide(nextIndex);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
